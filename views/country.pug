@@ -19,7 +19,7 @@ p Код страны: #{country.Code} <br>
 p Дополнительный код страны: #{country.Code2} <br>
 
 each iter in cities
-    a(href=`${iter.dataValues.ID}`)= iter.dataValues.Name + ' ' + iter.dataValues.Population
+    a(href=`/cities/${iter.dataValues.ID}`)= iter.dataValues.Name + ' ' + iter.dataValues.Population
     br
 
 

@@ -16,6 +16,7 @@ async function main()
     app.set('view engine', 'pug');
 
     app.use('/countries', require('./api/countries'));
+    app.use('/cities', require('./api/cities'));
     app.get('/', (req, res) =>
     {
         res.render('index', { countriesCount: 10, citiesCount: 42 });
