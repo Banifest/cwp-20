@@ -27,6 +27,6 @@ p Распространённые языки
 br
 each iter in languages
     p1 Название языка: #{iter.dataValues.Language} <br>- Является ли официальным #{iter.dataValues.IsOfficial === 'T'? 'Да': 'Нет'} <br>
-    p1    Количество носителей языка: #{iter.dataValues.Percentage * country.Population}
+    p1    Количество носителей языка: #{Math.ceil(iter.dataValues.Percentage * country.Population / 100)}
     br
     br

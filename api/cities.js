@@ -6,6 +6,20 @@ const db = require('../index');
 const app = express.Router();
 app.use(bodyParser.json());
 
+app.get('/', (req, res) =>
+{
+    db.city.findAll()
+        .then(arr =>
+              {
+                  let page = req.query.page? req.query.page: 1;
+                  res.render('cities',
+                             {
+                                 pageNumber: page,
+                                 countries: arr.slice(25 * (page - 1), 25 * page),
+                                 countPages: Math.ceil(arr.length / 25)
+                             });
+              });
+});
 
 app.get('/[0-9]*/', (req, res) =>
 {
